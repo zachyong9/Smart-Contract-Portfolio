@@ -1,0 +1,35 @@
+# Enterprise-Grade UUPS Upgradeable Smart Contract Architecture 
+# 企业级 UUPS 可升级智能合约架构
+
+## 💡 Project Overview | 项目简介
+This project demonstrates a production-ready approach to smart contract development using the **UUPS (Universal Upgradeable Proxy Standard)** pattern. It completely separates contract logic from state data, allowing for seamless "hot-upgrades" of business logic without changing the contract's interaction address or losing user data.
+
+本项目完整实现并部署了一套基于 **UUPS 代理模式** 的企业级可升级智能合约。通过将逻辑层与数据层物理分离，实现了在不改变合约地址、不丢失状态数据的前提下，对底层业务逻辑的平滑“热更新”。
+
+## 🛠 Tech Stack | 技术栈
+* **Language:** Solidity (`^0.8.22`)
+* **Standards:** ERC-1967 Proxy, UUPSUpgradeable, Initializable
+* **Security Library:** OpenZeppelin Contracts Upgradeable
+* **Network:** Ethereum Sepolia Testnet
+* **Tools:** Remix IDE, MetaMask
+
+## 🔥 Key Features & Achievements | 核心特性与实战成果
+* **Zero-Downtime Upgrades (零停机升级):** Successfully upgraded the logic contract from V1 to V2 via `upgradeToAndCall`, maintaining 100% state continuity (verified data persistence across versions).
+    成功通过代理合约执行了从 V1 到 V2 的逻辑切换，原有状态数据完美继承。
+* **Secure Initialization (安全初始化机制):** Replaced traditional constructors with the `initializer` modifier and securely encoded the initialization payload (hex data) during proxy deployment to guarantee owner permissions.
+    舍弃传统构造函数，使用 `initializer` 修饰符，并在代理合约部署时精确拼接十六进制底层数据完成鉴权与数据初始化。
+* **Access Control (严格权限控制):** Implemented OpenZeppelin's `OwnableUpgradeable` to ensure that only the verified owner address can authorize and execute logic contract swaps.
+    严格实施 `onlyOwner` 权限管理，确保仅有部署者（管理员）有权触发合约升级。
+* **Library Compatibility (底层库兼容处理):** Resolved EVM bytecode mismatches and handled strict version dependencies between Solidity compilers and OpenZeppelin libraries.
+    熟练处理了高版本 Solidity 编译器与底层安全库的依赖冲突及字节码匹配问题。
+
+## ⛓ On-Chain Verification | 链上部署记录
+*(Please verify the deployment and state continuity on Sepolia Testnet)*
+* **ERC1967 Proxy Address (The static entry point):** `[0xF2ec2C854dd9254f3dC25Be700e2D2a21FEEB903]`
+* **Logic Contract V1 Address:** `[0x58Ca19cb7371B85e26e3F7bd87fB33d9DC52624f]`
+* **Logic Contract V2 Address:** `[0x4030606207aC751718960c8fbAB6a5d43dac5c3d]`
+
+---
+*Built with passion for Web3.* ```
+
+---
