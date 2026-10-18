@@ -7,7 +7,7 @@ Production-ready Solidity smart contract templates built with **OpenZeppelin**. 
 ### 1. Modular ERC20 Tokenomics
 - **`1_BasicToken.sol`**: Standard, gas-optimized ERC20 token implementation.
 - **`2_TaxToken.sol`**: Custom ERC20 token with automated transfer tax logic (ideal for project treasury, marketing, or liquidity pool fee distribution).
-- **`3_BrunToken.sol`**: Deflationary ERC20 token featuring token burn mechanisms to reduce total supply over time.
+- **`3_BurnToken.sol`**: Deflationary ERC20 token featuring token burn mechanisms to reduce total supply over time.
 
 ### 2. UUPS Upgradeable Architecture
 - **`Proxy.sol`**: ERC1967 Proxy contract that holds the state and delegates calls to the logic layer.
