@@ -13,19 +13,21 @@ Production-ready Solidity smart contract templates built with **OpenZeppelin**. 
 - **`Proxy.sol`**: ERC1967 Proxy contract that holds the state and delegates calls to the logic layer.
 - **`V1.sol` (`MyContractV1`)**: Initial upgradeable implementation contract with role-based access control and initializer.
 - **`V2.sol` (`MyContractV2`)**: Upgraded logic layer demonstrating seamless state preservation and new function integration (`changeData`).
-- ```mermaid
+
+```mermaid
 graph LR
-    User([👤 User / Admin]) -->|Calls| Proxy[🛡️ ERC1967 Proxy<br/>Holds State & Balances]
-    Proxy -.->|1. Initial DelegateCall| V1[⚙️ Logic V1.sol<br/>Basic Implementation]
-    Proxy ==>|2. Seamless Upgrade| V2[🚀 Logic V2.sol<br/>New Features Added]
+    User([👤 User / Admin]) -->|Calls| Proxy[🛡️ ERC1967 Proxy]
+    Proxy -.->|1. DelegateCall| V1[⚙️ Logic V1.sol]
+    Proxy ==>|2. Seamless Upgrade| V2[🚀 Logic V2.sol]
 ```
- ## ✨ Key Features
+
+## ✨ Key Features
 - **UUPS Proxy Pattern**: Upgrade contract logic safely from V1 to V2 while keeping the exact same contract address and user balances.
 - **Custom Tokenomics Ready**: Pre-built templates for Tax (fee-on-transfer) and Burn (deflationary) mechanisms.
 - **Security Best Practices**: Built on OpenZeppelin standards with strict ownership and upgrade authorization.
 
 ## 🚀 Quick Deployment Guide
-1. **For Standard/Tax/Burn Tokens**: Deploy `1_BasicToken.sol`, `2_TaxToken.sol`, or `3_BrunToken.sol` directly via Remix IDE or Hardhat.
+1. **For Standard/Tax/Burn Tokens**: Deploy `1_BasicToken.sol`, `2_TaxToken.sol`, or `3_BurnToken.sol` directly via Remix IDE or Hardhat.
 2. **For Upgradeable Contracts**:
    - Step 1: Deploy `V1.sol` (Implementation layer).
    - Step 2: Deploy `Proxy.sol` pointing to the `V1` address and initialize the state.
