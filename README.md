@@ -13,7 +13,6 @@ Production-ready Solidity smart contract templates built with **OpenZeppelin**. 
 - **`Proxy.sol`**: ERC1967 Proxy contract that holds the state and delegates calls to the logic layer.
 - **`V1.sol` (`MyContractV1`)**: Initial upgradeable implementation contract with role-based access control and initializer.
 - **`V2.sol` (`MyContractV2`)**: Upgraded logic layer demonstrating seamless state preservation and new function integration (`changeData`).
-
 - ```mermaid
 graph LR
     User([👤 User / Admin]) -->|Calls| Proxy[🛡️ ERC1967 Proxy<br/>Holds State & Balances]
